@@ -12,16 +12,14 @@ class Login_page extends StatefulWidget {
 class _Login_pageState extends State<Login_page> {
   String email = '';
   String password = '';
-  String home = '';
+
   final _formKey = GlobalKey<FormState>();
   final emailed = GlobalKey<FormFieldState>();
 
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Scaffold(
-        body: SingleChildScrollView(
+  Widget _body() {
+    return Column(
+      children: [
+        SingleChildScrollView(
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -30,11 +28,10 @@ class _Login_pageState extends State<Login_page> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 200,
                     height: 200,
-                    child: Image.network(
-                        'https://png.pngtree.com/png-clipart/20220626/original/pngtree-secure-user-login-password-protected-png-image_8182978.png'),
+                    child: Image.asset('assets/images/login3.png'),
                   ),
                   Container(
                     height: 10,
@@ -101,6 +98,28 @@ class _Login_pageState extends State<Login_page> {
               ),
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Scaffold(
+        body: Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                'assets/images/backgroud.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(color: Colors.black.withOpacity(0.3)),
+            _body(),
+          ],
         ),
       ),
     );
