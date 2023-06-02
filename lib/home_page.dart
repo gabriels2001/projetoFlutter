@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 import 'package:app_fluterando/app_controller.dart';
+import 'package:app_fluterando/login_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,6 +18,32 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+            child: ListView(
+          children: const [
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('tela de inicio'),
+              // onTap: () {
+              //   Navigator.pop(context);
+              // },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Logout'),
+              subtitle: Text('tela de login'),
+              //   onTap: () {
+              //     Navigator.pushReplacement(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => Login_page(),
+              //       ),
+              //     );
+              //   },
+            ),
+          ],
+        )),
         appBar: AppBar(
           title: Text('Home Page'),
           actions: const [CustomSwitch()],
