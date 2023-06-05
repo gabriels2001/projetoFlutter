@@ -100,11 +100,16 @@ class _Login_pageState extends State<Login_page> {
                                       print('Login invalido');
                                     }
                                   },
+                                  //child: null,
                                   child: const SizedBox(
+                                    height: 20,
                                     width: double.infinity,
-                                    child: Text(
-                                      'Entrar',
-                                      textAlign: TextAlign.center,
+                                    child: Hero(
+                                      tag: 'btnentra',
+                                      child: Text(
+                                        'Entrar',
+                                        textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ),
                                 ),
